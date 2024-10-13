@@ -121,7 +121,7 @@ class Friendship(models.Model):
         verbose_name = 'Дружба'
         verbose_name_plural = 'Дружбы'
         models.UniqueConstraint(fields=['sender', 'receiver'], name='unique_friendship')
-        ordering = ['created_at']
+        ordering = ['-created_at']
 
     def __str__(self):
         return f'Дружба: {self.sender} -> {self.recipient} ({self.status})'
