@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block title %} Редактировать пост {% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center g-4">
+        <div class="col-md-8">
+            <div class="p-4 mb-4 bg-light border rounded shadow-sm">
+                <h2 class="mb-3">Редактировать пост</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+                    <a href="{% url 'PostDetail' post.pk %}" class="btn btn-secondary">Отмена</a>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
