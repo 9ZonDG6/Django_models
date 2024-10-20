@@ -3,6 +3,15 @@
 
 {% block title %} {{ post.post_subject|truncatechars:20 }} {% endblock %}
 
+{% block sidebar %}
+    <ul class="list-group mb-3">
+        <a href="{% url 'Posts' %}"
+           class="list-group-item {% if '/posts/' in request.path %}active{% endif %}">Посты</a>
+        <a href="{% url 'PostCreate' %}"
+           class="list-group-item {% if '/post/create/' in request.path %}active{% endif %}">Создать пост</a>
+    </ul>
+{% endblock %}
+
 {% block content %}
     <div class="row justify-content-center">
         <div class="col-md-8">

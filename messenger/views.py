@@ -1,13 +1,18 @@
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, UpdateView, DeleteView, CreateView
+from django_filters.views import FilterView
+
+from . import filters
+from .filters import PostFilter
 from .models import Post
 
 
 # Create your views here.
-class PostListView(ListView):
+class PostListView(FilterView):
     template_name = 'mess_temp/mess_list.html'
     model = Post
     context_object_name = 'posts'
+    filterset_class = PostFilter
 
 
 class PostDetailView(DetailView):

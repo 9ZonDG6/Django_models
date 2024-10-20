@@ -120,7 +120,9 @@ class Friendship(models.Model):
     class Meta:
         verbose_name = 'Дружба'
         verbose_name_plural = 'Дружбы'
-        models.UniqueConstraint(fields=['sender', 'receiver'], name='unique_friendship')
+        constraints = [
+            models.UniqueConstraint(fields=['sender', 'recipient'], name='unique_friendship')
+        ]
         ordering = ['-created_at']
 
     def __str__(self):

@@ -27,6 +27,7 @@ INSTALLED_APPS = [
 
     'messenger',
     'django_bootstrap5',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
